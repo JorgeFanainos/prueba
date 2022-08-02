@@ -30,43 +30,29 @@ canvas.setFont('Helvetica', 15)
 canvas.drawString(125,660,"Informe de Eventos, Fallas o Incidencias [ Inicio/Cierre ]")
 
 
-"""Area Identificacion"""
 
-
-canvas.setFont('Helvetica', 12)
-canvas.rect(30,630,550, 15)
-canvas.drawString(250,632,'IDENTIFICACIÓN')
-canvas.setFont('Helvetica', 10)
 
 
 """Area deteccion incidente"""
 
 
-canvas.rect(30,610,175, 20)
-canvas.drawString(40,617,'Área donde se detectó el incidente:')
-canvas.rect(205,610,375, 20)
-
 nombre_area = input("\nIngrese el nombre del área donde se detectó el incidente: ")
 lista_area.append(nombre_area)
-canvas.drawString(230,617,nombre_area)
+
 
 
 """Area indicacion de servcio"""
 
 
-canvas.rect(30,590,100, 20)
-canvas.drawString(40,595,'Servicio:')
-canvas.rect(130,590,450, 20)
+
+
 nombre_servicio = input("\nIngrese el nombre del servicio donde se presento el incidente: ")
 lista_servicio.append(nombre_servicio)
-canvas.drawString(150,595,nombre_servicio)
 
 
 """Area Canales"""
 
 
-canvas.rect(30,550,150, 40)
-canvas.drawString(40,565,'Canales:')
 
 aux = True
 print("""
@@ -107,40 +93,21 @@ while aux == True:
   else :
     print("Realizo una selección invalida! porfavor intente nuevamente")
     aux = True
-canvas.rect(180,550,400, 40)
-canvas.drawString(200,575,'Oficinas')
-canvas.rect(240,574,8, 8)
-canvas.drawString(350,575,'IVR')
-canvas.rect(375,574,8, 8)
-canvas.drawString(500,575,'ATM')
-canvas.rect(525,574,8, 8)
-canvas.drawString(200,555,'POS')
-canvas.rect(227,554,8, 8)
-canvas.drawString(350,555,'Banca Por Internet')
-canvas.rect(440,554,8, 8)
 
 
 """Area Fechas y Horas """
 
-
-canvas.rect(30,490,150, 60)
-canvas.drawString(40,520,'Fecha de inicio del incidente')
-canvas.drawString(40,510,'o evento tecnológico:')
-canvas.rect(180,490,125, 60)
 fecha_inicio = input("\nIngrese la fecha de inicio del incidente(DD/MM/YYYY): ")
 lista_fechaIni.append(fecha_inicio)
+
 hora_inicio = input("\nIngrese la hora de inicio del incidente(00:00 am/pm): ")
 lista_horaIni.append(hora_inicio)
-canvas.drawString(190,510,fecha_inicio+" "+hora_inicio)
-canvas.rect(305,490,150, 60)
-canvas.drawString(315,520,'Fecha de fin del incidente')
-canvas.drawString(315,510,'o evento tecnológico:')
-canvas.rect(455,490,125, 60)
+
 fecha_fin = input("\nIngrese la fecha de fin del incidente(DD/MM/YYYY): ")
 lista_fechaFin.append(fecha_fin)
+
 hora_fin = input("\nIngrese la hora de fin del incidente(00:00 am/pm): ")
 lista_horaFin.append(hora_fin)
-canvas.drawString(465,510,fecha_fin+" "+hora_fin)
 
 
 """Area Seleccion de los campos"""
@@ -168,29 +135,14 @@ while aux1 == True:
   else :
     print("Realizo una selección invalida! porfavor intente nuevamente")
     aux1 = True
-canvas.rect(30,465,550, 25)
-canvas.drawString(50,473,'Incidente Tecnológico')
-canvas.rect(150,472,8, 8)
-canvas.drawString(250,473,'Proveedor Externo')
-canvas.rect(335,472,8, 8)
-canvas.drawString(450,473,'Mantenimiento')
-canvas.rect(517,472,8, 8)
+
 
 
 
 """Area Descripciones"""
 
-
-canvas.setFont('Helvetica', 12)
-canvas.rect(30,450,550, 15)
-canvas.drawString(250,452,'DESCRIPCIONES')
-canvas.setFont('Helvetica', 10)
 print("DESCRIPCIONES")
-canvas.rect(30,350,110, 100)
-canvas.drawString(40,418,'Descripción del')
-canvas.drawString(40,408,'incidente o evento')
-canvas.drawString(40,398,'tecnológico')
-canvas.rect(140,350,440, 100)
+
 maxlength = 80
 descripcion=""
 click.echo('\nIngrese la descripcion del incidente: ', nl=False)
@@ -198,33 +150,25 @@ while len(descripcion) < maxlength:
     temp = click.getchar()
     click.echo(temp, nl=False)
     descripcion += temp
-canvas.drawString(150,430,descripcion)
 descripcion1=""
 click.echo(':', nl=False)
 while len(descripcion1) < maxlength:
     temp = click.getchar()
     click.echo(temp, nl=False)
     descripcion1 += temp
-canvas.drawString(150,419,descripcion1)
 descripcion2=""
 click.echo(':', nl=False)
 while len(descripcion2) < maxlength:
     temp = click.getchar()
     click.echo(temp, nl=False)
     descripcion2 += temp
-canvas.drawString(150,408,descripcion2)
+
 a = input("\nPresione enter para rellenar el siguente punto!")
 
 
-"""Area del ingreso u origen"""
+"""Area del motivo u origen"""
 
 
-canvas.setFont('Helvetica', 10)
-canvas.rect(30,250,110, 100)
-canvas.drawString(40,318,'Motivo u origen')
-canvas.drawString(40,308,'del incidente o')
-canvas.drawString(40,298,'evento tecnológico')
-canvas.rect(140,250,440, 100)
 maxlength = 80
 motivo=""
 click.echo('\nIngrese el motivo u origen del incidente o evento: ', nl=False)
@@ -232,31 +176,23 @@ while len(motivo) < maxlength:
     temp = click.getchar()
     click.echo(temp, nl=False)
     motivo += temp
-canvas.drawString(150,330,motivo)
 motivo1=""
 click.echo('', nl=False)
 while len(motivo1) < maxlength:
     temp = click.getchar()
     click.echo(temp, nl=False)
     motivo1 += temp
-canvas.drawString(150,319,motivo1)
+
 motivo2=""
 click.echo('', nl=False)
 while len(motivo2) < maxlength:
     temp = click.getchar()
     click.echo(temp, nl=False)
     motivo2 += temp
-canvas.drawString(150,308,motivo2)
 a = input("\nPresione enter para rellenar el siguente punto!")
 
 
 """Area servicios afectados"""
-canvas.setFont('Helvetica', 10)
-canvas.rect(30,150,110, 100)
-canvas.drawString(40,218,'Servicios afectados')
-canvas.drawString(40,208,'por el incidente o ')
-canvas.drawString(40,198,'evento tecnológico')
-canvas.rect(140,150,440, 100)
 maxlength = 80
 servicios_afectados=""
 click.echo('\nIngrese los servicios afectados por el incidente: ', nl=False)
@@ -264,18 +200,11 @@ while len(servicios_afectados) < maxlength:
     temp = click.getchar()
     click.echo(temp, nl=False)
     servicios_afectados += temp
-canvas.drawString(150,208,servicios_afectados)
 a = input("\nPresione enter para rellenar el siguente punto!")
 
 
 """Area Correctivos"""
-canvas.setFont('Helvetica', 10)
-canvas.rect(30,50,110, 100)
-canvas.drawString(40,118,'Correctivos aplicados')
-canvas.drawString(40,108,'para solventar')
-canvas.drawString(40,98,'el incidente o ')
-canvas.drawString(40,88,'evento tecnológico')
-canvas.rect(140,50,440, 100)
+
 maxlength = 75
 correctivos=""
 click.echo('\nIngrese los correctivos aplicados para solventar el incidente o evento : ', nl=False)
@@ -283,63 +212,171 @@ while len(correctivos) < maxlength:
     temp = click.getchar()
     click.echo(temp, nl=False)
     correctivos += temp
-canvas.drawString(150,130,correctivos)
 correctivos1=""
 click.echo('', nl=False)
 while len(correctivos1) < maxlength:
     temp = click.getchar()
     click.echo(temp, nl=False)
     correctivos1 += temp
-canvas.drawString(150,119,correctivos1)
 correctivos2=""
 click.echo('', nl=False)
 while len(correctivos2) < maxlength:
     temp = click.getchar()
     click.echo(temp, nl=False)
     correctivos2 += temp
-canvas.drawString(150,108,correctivos2)
 correctivos3=""
 click.echo('', nl=False)
 while len(correctivos3) < maxlength:
     temp = click.getchar()
     click.echo(temp, nl=False)
     correctivos3 += temp
-canvas.drawString(150,97,correctivos3)
 correctivos4=""
 click.echo('', nl=False)
 while len(correctivos4) < maxlength:
     temp = click.getchar()
     click.echo(temp, nl=False)
     correctivos4 += temp
-canvas.drawString(150,97,correctivos4)
+
+def generar():
+  """Identificacion"""
+  canvas.setFont('Helvetica', 12)
+  canvas.rect(30,630,550, 15)
+  canvas.drawString(250,632,'IDENTIFICACIÓN')
+  canvas.setFont('Helvetica', 10)
+
+  """Nombre Area"""
+  canvas.rect(30,610,175, 20)
+  canvas.drawString(40,617,'Área donde se detectó el incidente:')
+  canvas.rect(205,610,375, 20)
+  canvas.drawString(230,617,nombre_area)
+
+  """Nombre Servico"""
+
+  canvas.rect(30,590,100, 20)
+  canvas.drawString(40,595,'Servicio:')
+  canvas.rect(130,590,450, 20)
+  canvas.drawString(150,595,nombre_servicio)
+
+
+  """Canales"""
+  canvas.rect(30,550,150, 40)
+  canvas.drawString(40,565,'Canales:')
+  canvas.rect(180,550,400, 40)
+  canvas.drawString(200,575,'Oficinas')
+  canvas.rect(240,574,8, 8)
+  canvas.drawString(350,575,'IVR')
+  canvas.rect(375,574,8, 8)
+  canvas.drawString(500,575,'ATM')
+  canvas.rect(525,574,8, 8)
+  canvas.drawString(200,555,'POS')
+  canvas.rect(227,554,8, 8)
+  canvas.drawString(350,555,'Banca Por Internet')
+  canvas.rect(440,554,8, 8)
+
+  """Area Fechas y Horas"""
+  canvas.rect(30,490,150, 60)
+  canvas.drawString(40,520,'Fecha de inicio del incidente')
+  canvas.drawString(40,510,'o evento tecnológico:')
+  canvas.rect(180,490,125, 60)
+  canvas.drawString(190,510,fecha_inicio+" "+hora_inicio)
+  canvas.rect(305,490,150, 60)
+  canvas.drawString(315,520,'Fecha de fin del incidente')
+  canvas.drawString(315,510,'o evento tecnológico:')
+  canvas.rect(455,490,125, 60)
+  canvas.drawString(465,510,fecha_fin+" "+hora_fin)
+
+  """Incidentes"""
+  canvas.rect(30,465,550, 25)
+  canvas.drawString(50,473,'Incidente Tecnológico')
+  canvas.rect(150,472,10, 10)
+  canvas.drawString(250,473,'Proveedor Externo')
+  canvas.rect(335,472,10, 10)
+  canvas.drawString(450,473,'Mantenimiento')
+  canvas.rect(517,472,10, 10)
+
+  """Area Descripciones"""
+
+
+  canvas.setFont('Helvetica', 12)
+  canvas.rect(30,450,550, 15)
+  canvas.drawString(250,452,'DESCRIPCIONES')
+  canvas.setFont('Helvetica', 10)
+  canvas.rect(30,350,110, 100)
+  canvas.drawString(40,418,'Descripción del')
+  canvas.drawString(40,408,'incidente o evento')
+  canvas.drawString(40,398,'tecnológico')
+  canvas.rect(140,350,440, 100)
+
+  canvas.drawString(150,430,descripcion)
+
+  canvas.drawString(150,419,descripcion1)                     
+
+  canvas.drawString(150,408,descripcion2)
+  
+  """Area del ingreso u origen"""
+  canvas.setFont('Helvetica', 10)
+  canvas.rect(30,250,110, 100)
+  canvas.drawString(40,318,'Motivo u origen')
+  canvas.drawString(40,308,'del incidente o')
+  canvas.drawString(40,298,'evento tecnológico')
+  canvas.rect(140,250,440, 100)
+  canvas.setFont('Helvetica', 10)
+  canvas.drawString(150,330,motivo)
+  canvas.setFont('Helvetica', 10)
+  canvas.drawString(150,319,motivo1)
+  canvas.setFont('Helvetica', 10)
+  canvas.drawString(150,308,motivo2)
+
+  """Area servicios afectados"""
+  canvas.setFont('Helvetica', 10)
+  canvas.rect(30,150,110, 100)
+  canvas.drawString(40,218,'Servicios afectados')
+  canvas.drawString(40,208,'por el incidente o ')
+  canvas.drawString(40,198,'evento tecnológico')
+  canvas.rect(140,150,440, 100)
+
+  canvas.drawString(150,208,servicios_afectados)
+
+  """Correctivos"""
+  canvas.setFont('Helvetica', 10)
+  canvas.rect(30,50,110, 100)
+  canvas.drawString(40,118,'Correctivos aplicados')
+  canvas.drawString(40,108,'para solventar')
+  canvas.drawString(40,98,'el incidente o ')
+  canvas.drawString(40,88,'evento tecnológico')
+  canvas.rect(140,50,440, 100)
+
+  canvas.drawString(150,130,correctivos)
+
+  canvas.drawString(150,119,correctivos1)
+
+  canvas.drawString(150,108,correctivos2)
+
+  canvas.drawString(150,97,correctivos3)
+  
+  canvas.drawString(150,97,correctivos4)
 
 def editar():
   print("Porfavor indique que campo desea editar")
   edit = input("¿Desea cambiar el area donde se detectó el indidente?(Y/N)"+":  "+nombre_area+"\n")
   if edit == "y" or edit == "Y":
     aux4 = True
-    while aux4 == True:
-      edit_nombre = input("Ingrese el nuevo nombre del area donde se detecto el incidente: \n")
-      nombre_area = edit_nombre
-      aux4 = False
-  elif edit == "n" or edit == "N":
-    aux4 = False
-  else:
-    print("ingresó una opción invalida, intente nuevamente!")
-    aux4 = True
-  canvas.save()  
+ 
+def main():
+  aux3 = True
+  while aux3 == True: 
+    print("\nPresione \n1)Para Generar El Documento\n2)Para Editar El Documento")
+    a = input("-->")
+    if a == "1":
+      generar()
+      canvas.save()
+      print("\nSu reporte "+"¨"+nombre+".pdf"+"¨"+"  se ha creado correctamente")
+      aux3= False
+    elif a == "2":
+      editar()
+      aux3 = False
+    else: 
+      print("\n Ingreso una opcion invalida! Porfavor Intente nuevamente")
+      aux3== True
 
-aux3 = True
-while aux3 == True: 
-  print("\nPresione \n1)Para Generar El Documento\n2)Para Editar El Documento")
-  a = input("-->")
-  if a == "1":
-    canvas.save()
-    print("\nSu reporte "+"¨"+nombre+".pdf"+"¨"+"  se ha creado correctamente")
-    aux3= False
-  elif a == "2":
-    editar()
-    aux3 = False
-  else: 
-    print("\n Ingreso una opcion invalida! Porfavor Intente nuevamente")
-    aux3== True
+main()    
