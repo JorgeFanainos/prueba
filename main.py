@@ -2,12 +2,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 import click
 
-lista_area = []
-lista_fechaIni = []
-lista_horaIni = []
-lista_fechaFin = []
-lista_horaFin = []
-lista_servicio = []
+
 
 print(""" 
   000000    0    0    000000
@@ -18,6 +13,7 @@ print("""
 """)
 
 print("Bienvenido al sistema de genración de reportes\n\n\n")
+
 
 nombre = input("\nIngrese el nombre del documento:")
 canvas = canvas.Canvas(nombre+".pdf", pagesize=letter)
@@ -37,8 +33,6 @@ canvas.drawString(125,660,"Informe de Eventos, Fallas o Incidencias [ Inicio/Cie
 
 
 nombre_area = input("\nIngrese el nombre del área donde se detectó el incidente: ")
-
-
 
 """Area indicacion de servcio"""
 
@@ -356,16 +350,21 @@ def generar():
   canvas.setFont('Helvetica', 10)
   canvas.drawString(150,86,correctivos4)
   canvas.setFont('Helvetica', 10)
-  canvas.drawString(150,86,correctivos5) 
+  canvas.drawString(150,75,correctivos5) 
+
+
+
+
 def editar():
   aux5= True
   while aux5 == True:
     ingreso_edicion = input("Ingrese el numero del campo que desea editar: ")
     if ingreso_edicion =="1":
       nombre = input("\nIngrese el NUEVO nombre del documento:")
+      
       aux5 = False
     elif ingreso_edicion =="2":
-      nombre_area = input("\nIngrese el NUEVO nombre del área donde se detectó el incidente: ")
+      nombre_area1 = input("\nIngrese el NUEVO nombre del área donde se detectó el incidente: ")
       aux5 = False
     elif ingreso_edicion =="3":
       nombre_servicio = input("\nIngrese el NUEVO nombre del servicio donde se presento el incidente: ")
@@ -441,11 +440,11 @@ def editar():
       hora_inicio = input("\nIngrese la NUEVA hora de inicio del incidente(00:00 am/pm): ")
       aux5 = False
     elif ingreso_edicion =="8":
-          fecha_fin = input("\nIngrese la NUEVA fecha de fin del incidente(DD/MM/YYYY): ")
-          aux5 = False
+      fecha_fin = input("\nIngrese la NUEVA fecha de fin del incidente(DD/MM/YYYY): ")
+      aux5 = False
     elif ingreso_edicion =="9":
-          hora_fin = input("\nIngrese la NUEVA hora de fin del incidente(00:00 am/pm): ")
-          aux5 = False
+      hora_fin = input("\nIngrese la NUEVA hora de fin del incidente(00:00 am/pm): ")
+      aux5 = False
     elif ingreso_edicion =="10":
           maxlength = 80
           descripcion=""
@@ -466,7 +465,7 @@ def editar():
             temp = click.getchar()
             click.echo(temp, nl=False)
             descripcion2 += temp
-          aux5 = False
+          aux5 = False   
     elif ingreso_edicion =="11":
           maxlength = 80
           motivo=""
@@ -497,7 +496,7 @@ def editar():
             temp = click.getchar()
             click.echo(temp, nl=False)
             servicios_afectados += temp
-          aux5 = False
+          aux5 = False     
     elif ingreso_edicion =="13":
           maxlength = 75
           correctivos=""
@@ -539,7 +538,11 @@ def editar():
     else :
           print("\n Ingreso una opcion invalida! Porfavor Intente nuevamente")
           aux5 == True
+   
+
   
+  
+
 
 
 def main():
@@ -575,13 +578,11 @@ def main():
       print("9) Hora de Fin del Incidente: "+hora_fin+"\n")
       print("10) Descripcion: "+descripcion+descripcion1+descripcion2+"\n")
       print("11) Motivo: "+motivo+motivo1+motivo2+"\n")
-      print("12)nombre del documento: "+servicios_afectados+"\n")
-      print("13)nombre del documento: "+correctivos+correctivos1+correctivos2+correctivos3+correctivos4+"\n")
+      print("12) Servicios afectados: "+servicios_afectados+"\n")
+      print("13) Correctivos: "+correctivos+correctivos1+correctivos2+correctivos3+correctivos4+"\n")
       editar()
-      generar()
-      canvas.save()
-      print("\nSu reporte se ha creado correctamente")
-      aux3 = False
+      print("Su reporte se ha actualizado")
+      aux3 = True
 
     else: 
       print("\n Ingreso una opcion invalida! Porfavor Intente nuevamente")
