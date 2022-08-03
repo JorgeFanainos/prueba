@@ -230,6 +230,12 @@ while len(correctivos4) < maxlength:
     temp = click.getchar()
     click.echo(temp, nl=False)
     correctivos4 += temp
+correctivos5=""
+click.echo('', nl=False)
+while len(correctivos5) < maxlength:
+    temp = click.getchar()
+    click.echo(temp, nl=False)
+    correctivos5 += temp    
 
 def generar():
   """Identificacion"""
@@ -257,15 +263,15 @@ def generar():
   canvas.drawString(40,565,'Canales:')
   canvas.rect(180,550,400, 40)
   canvas.drawString(200,575,'Oficinas')
-  canvas.rect(240,574,8, 8)
+  canvas.rect(240,574,10, 10)
   canvas.drawString(350,575,'IVR')
-  canvas.rect(375,574,8, 8)
+  canvas.rect(375,574,10, 10)
   canvas.drawString(500,575,'ATM')
-  canvas.rect(525,574,8, 8)
+  canvas.rect(525,574,10, 10)
   canvas.drawString(200,555,'POS')
-  canvas.rect(227,554,8, 8)
+  canvas.rect(227,554,10, 10)
   canvas.drawString(350,555,'Banca Por Internet')
-  canvas.rect(440,554,8, 8)
+  canvas.rect(440,554,10, 10)
 
   """Area Fechas y Horas"""
   canvas.rect(30,490,150, 60)
@@ -300,11 +306,11 @@ def generar():
   canvas.drawString(40,408,'incidente o evento')
   canvas.drawString(40,398,'tecnológico')
   canvas.rect(140,350,440, 100)
-
+  canvas.setFont('Helvetica', 10)
   canvas.drawString(150,430,descripcion)
-
+  canvas.setFont('Helvetica', 10)
   canvas.drawString(150,419,descripcion1)                     
-
+  canvas.setFont('Helvetica', 10)
   canvas.drawString(150,408,descripcion2)
   
   """Area del ingreso u origen"""
@@ -328,7 +334,7 @@ def generar():
   canvas.drawString(40,208,'por el incidente o ')
   canvas.drawString(40,198,'evento tecnológico')
   canvas.rect(140,150,440, 100)
-
+  canvas.setFont('Helvetica', 10)
   canvas.drawString(150,208,servicios_afectados)
 
   """Correctivos"""
@@ -339,17 +345,18 @@ def generar():
   canvas.drawString(40,98,'el incidente o ')
   canvas.drawString(40,88,'evento tecnológico')
   canvas.rect(140,50,440, 100)
-
+  canvas.setFont('Helvetica', 10)
   canvas.drawString(150,130,correctivos)
-
+  canvas.setFont('Helvetica', 10)
   canvas.drawString(150,119,correctivos1)
-
+  canvas.setFont('Helvetica', 10)
   canvas.drawString(150,108,correctivos2)
-
+  canvas.setFont('Helvetica', 10)
   canvas.drawString(150,97,correctivos3)
-  
-  canvas.drawString(150,97,correctivos4)
- 
+  canvas.setFont('Helvetica', 10)
+  canvas.drawString(150,86,correctivos4)
+  canvas.setFont('Helvetica', 10)
+  canvas.drawString(150,86,correctivos5) 
 def editar():
   aux5= True
   while aux5 == True:
@@ -523,11 +530,16 @@ def editar():
             temp = click.getchar()
             click.echo(temp, nl=False)
             correctivos4 += temp
+          correctivos5=""
+          while len(correctivos5) < maxlength:
+            temp = click.getchar()
+            click.echo(temp, nl=False)
+            correctivos5 += temp
           aux5 = False
     else :
           print("\n Ingreso una opcion invalida! Porfavor Intente nuevamente")
           aux5 == True
-  generar()
+  
 
 
 def main():
@@ -566,6 +578,7 @@ def main():
       print("12)nombre del documento: "+servicios_afectados+"\n")
       print("13)nombre del documento: "+correctivos+correctivos1+correctivos2+correctivos3+correctivos4+"\n")
       editar()
+      generar()
       canvas.save()
       print("\nSu reporte se ha creado correctamente")
       aux3 = False
