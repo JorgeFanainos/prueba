@@ -17,8 +17,8 @@ print("""
   000000      00      000000
 """)
 
-print("Bienvenido al sistema de genración de reportes\n")
-print("Identificación del documento\n")
+print("Bienvenido al sistema de genración de reportes\n\n\n")
+
 nombre = input("\nIngrese el nombre del documento:")
 canvas = canvas.Canvas(nombre+".pdf", pagesize=letter)
 canvas.setStrokeColorRGB(0, 0, 0)
@@ -37,7 +37,6 @@ canvas.drawString(125,660,"Informe de Eventos, Fallas o Incidencias [ Inicio/Cie
 
 
 nombre_area = input("\nIngrese el nombre del área donde se detectó el incidente: ")
-lista_area.append(nombre_area)
 
 
 
@@ -47,7 +46,6 @@ lista_area.append(nombre_area)
 
 
 nombre_servicio = input("\nIngrese el nombre del servicio donde se presento el incidente: ")
-lista_servicio.append(nombre_servicio)
 
 
 """Area Canales"""
@@ -98,16 +96,12 @@ while aux == True:
 """Area Fechas y Horas """
 
 fecha_inicio = input("\nIngrese la fecha de inicio del incidente(DD/MM/YYYY): ")
-lista_fechaIni.append(fecha_inicio)
 
 hora_inicio = input("\nIngrese la hora de inicio del incidente(00:00 am/pm): ")
-lista_horaIni.append(hora_inicio)
 
 fecha_fin = input("\nIngrese la fecha de fin del incidente(DD/MM/YYYY): ")
-lista_fechaFin.append(fecha_fin)
 
 hora_fin = input("\nIngrese la hora de fin del incidente(00:00 am/pm): ")
-lista_horaFin.append(hora_fin)
 
 
 """Area Seleccion de los campos"""
@@ -122,14 +116,14 @@ while aux1 == True:
   2)Proveedor Externo \n
   3)Mantenimiento \n
   """)
-  seleccion_canales = input("-->")
-  if seleccion_canales == "1":
+  seleccion_canales1 = input("-->")
+  if seleccion_canales1 == "1":
     canvas.drawString(150,472, "X")
     aux1 = False
-  elif seleccion_canales == "2":
+  elif seleccion_canales1 == "2":
     canvas.drawString(335,472, "X")
     aux1 = False
-  elif seleccion_canales == "3":
+  elif seleccion_canales1 == "3":
     canvas.drawString(517,472, "X")
     aux1 = False
   else :
@@ -163,7 +157,7 @@ while len(descripcion2) < maxlength:
     click.echo(temp, nl=False)
     descripcion2 += temp
 
-a = input("\nPresione enter para rellenar el siguente punto!")
+a = input("\n\n\nPresione enter para rellenar el siguente punto!")
 
 
 """Area del motivo u origen"""
@@ -189,7 +183,7 @@ while len(motivo2) < maxlength:
     temp = click.getchar()
     click.echo(temp, nl=False)
     motivo2 += temp
-a = input("\nPresione enter para rellenar el siguente punto!")
+a = input("\n\n\nPresione enter para rellenar el siguente punto!")
 
 
 """Area servicios afectados"""
@@ -200,7 +194,7 @@ while len(servicios_afectados) < maxlength:
     temp = click.getchar()
     click.echo(temp, nl=False)
     servicios_afectados += temp
-a = input("\nPresione enter para rellenar el siguente punto!")
+a = input("\n\n\nPresione enter para rellenar el siguente punto!")
 
 
 """Area Correctivos"""
@@ -355,13 +349,187 @@ def generar():
   canvas.drawString(150,97,correctivos3)
   
   canvas.drawString(150,97,correctivos4)
-
-def editar():
-  print("Porfavor indique que campo desea editar")
-  edit = input("¿Desea cambiar el area donde se detectó el indidente?(Y/N)"+":  "+nombre_area+"\n")
-  if edit == "y" or edit == "Y":
-    aux4 = True
  
+def editar():
+  aux5= True
+  while aux5 == True:
+    ingreso_edicion = input("Ingrese el numero del campo que desea editar: ")
+    if ingreso_edicion =="1":
+      nombre = input("\nIngrese el NUEVO nombre del documento:")
+      aux5 = False
+    elif ingreso_edicion =="2":
+      nombre_area = input("\nIngrese el NUEVO nombre del área donde se detectó el incidente: ")
+      aux5 = False
+    elif ingreso_edicion =="3":
+      nombre_servicio = input("\nIngrese el NUEVO nombre del servicio donde se presento el incidente: ")
+      aux5 = False
+    elif ingreso_edicion =="4":
+      aux = True
+      print("""
+  Porfavor seleccione uno de los canales:\n
+  1)oficinas     2)IVR \n
+  3)ATM           4)POS \n
+  5)Banca Por Internet \n
+
+  (Si el servicio es Suiche7b o Tranred, solo presionar ENTER)\n
+  """)
+      while aux == True:
+        seleccion_canales = input("-->")
+        if seleccion_canales == "1":
+          canvas.drawString(240,574, "X")
+          aux = False
+        elif seleccion_canales == "2":
+          canvas.drawString(375,574, "X")
+          aux = False
+        elif seleccion_canales == "3":
+          canvas.drawString(525,574, "X")
+          aux = False
+        elif seleccion_canales == "4":
+          canvas.drawString(227,554, "X")
+          aux = False
+        elif seleccion_canales == "5":
+          canvas.drawString(440,554, "X")
+          aux = False
+        elif nombre_servicio == "Suiche7b":
+          canvas.drawString(525,574, "X")
+          canvas.drawString(227,554, "X")
+          canvas.drawString(440,554, "X")
+          aux = False
+        elif nombre_servicio == "Tranred":
+          canvas.drawString(525,574, "X")
+          canvas.drawString(227,554, "X")
+          canvas.drawString(440,554, "X")
+          aux = False
+        else :
+          print("Realizo una selección invalida! porfavor intente nuevamente")
+          aux = True
+      aux5 = False
+    elif ingreso_edicion =="5":
+      aux1 = True
+      while aux1 == True:
+            print("""
+  Porfavor seleccione uno de los siguientes campos:\n
+  1)Incidente Tecnológico\n
+  2)Proveedor Externo \n
+  3)Mantenimiento \n
+  """)
+            seleccion_canales1 = input("-->")
+            if seleccion_canales1 == "1":
+              canvas.drawString(150,472, "X")
+              aux1 = False
+            elif seleccion_canales1 == "2":
+              canvas.drawString(335,472, "X")
+              aux1 = False
+            elif seleccion_canales1 == "3":
+              canvas.drawString(517,472, "X")
+              aux1 = False
+            else :
+              print("Realizo una selección invalida! porfavor intente nuevamente")
+              aux1 = True
+      aux5 = False
+    elif ingreso_edicion =="6":        
+      fecha_inicio = input("\nIngrese la NUEVA fecha de inicio del incidente(DD/MM/YYYY): ")
+      aux5 = False
+    elif ingreso_edicion =="7":
+      hora_inicio = input("\nIngrese la NUEVA hora de inicio del incidente(00:00 am/pm): ")
+      aux5 = False
+    elif ingreso_edicion =="8":
+          fecha_fin = input("\nIngrese la NUEVA fecha de fin del incidente(DD/MM/YYYY): ")
+          aux5 = False
+    elif ingreso_edicion =="9":
+          hora_fin = input("\nIngrese la NUEVA hora de fin del incidente(00:00 am/pm): ")
+          aux5 = False
+    elif ingreso_edicion =="10":
+          maxlength = 80
+          descripcion=""
+          click.echo('\nIngrese la NUEVA descripcion del incidente: ', nl=False)
+          while len(descripcion) < maxlength:
+            temp = click.getchar()
+            click.echo(temp, nl=False)
+            descripcion += temp
+          descripcion1=""
+          click.echo(':', nl=False)
+          while len(descripcion1) < maxlength:
+            temp = click.getchar()
+            click.echo(temp, nl=False)
+            descripcion1 += temp
+          descripcion2="" 
+          click.echo(':', nl=False)
+          while len(descripcion2) < maxlength:
+            temp = click.getchar()
+            click.echo(temp, nl=False)
+            descripcion2 += temp
+          aux5 = False
+    elif ingreso_edicion =="11":
+          maxlength = 80
+          motivo=""
+          click.echo('\nIngrese el NUEVO motivo u origen del incidente o evento: ', nl=False)
+          while len(motivo) < maxlength:
+            temp = click.getchar()
+            click.echo(temp, nl=False)
+            motivo += temp
+          motivo1=""
+          click.echo('', nl=False)
+          while len(motivo1) < maxlength:
+            temp = click.getchar()
+            click.echo(temp, nl=False)
+            motivo1 += temp
+
+          motivo2=""
+          click.echo('', nl=False)
+          while len(motivo2) < maxlength:
+            temp = click.getchar()
+            click.echo(temp, nl=False)
+            motivo2 += temp
+          aux5 = False
+    elif ingreso_edicion =="12":
+          maxlength = 80
+          servicios_afectados=""
+          click.echo('\nIngrese los NUEVOS servicios afectados por el incidente: ', nl=False)
+          while len(servicios_afectados) < maxlength:
+            temp = click.getchar()
+            click.echo(temp, nl=False)
+            servicios_afectados += temp
+          aux5 = False
+    elif ingreso_edicion =="13":
+          maxlength = 75
+          correctivos=""
+          click.echo('\nIngrese los NUEVOS correctivos aplicados para solventar el incidente o evento : ', nl=False)
+          while len(correctivos) < maxlength:
+            temp = click.getchar()
+            click.echo(temp, nl=False)
+            correctivos += temp
+          correctivos1=""
+          click.echo('', nl=False)
+          while len(correctivos1) < maxlength:
+            temp = click.getchar()
+            click.echo(temp, nl=False)
+            correctivos1 += temp
+          correctivos2=""
+          click.echo('', nl=False)
+          while len(correctivos2) < maxlength:
+            temp = click.getchar()
+            click.echo(temp, nl=False)
+            correctivos2 += temp
+          correctivos3=""
+          click.echo('', nl=False)
+          while len(correctivos3) < maxlength:
+            temp = click.getchar()
+            click.echo(temp, nl=False)
+            correctivos3 += temp
+          correctivos4=""
+          click.echo('', nl=False)
+          while len(correctivos4) < maxlength:
+            temp = click.getchar()
+            click.echo(temp, nl=False)
+            correctivos4 += temp
+          aux5 = False
+    else :
+          print("\n Ingreso una opcion invalida! Porfavor Intente nuevamente")
+          aux5 == True
+  generar()
+
+
 def main():
   aux3 = True
   while aux3 == True: 
@@ -370,11 +538,38 @@ def main():
     if a == "1":
       generar()
       canvas.save()
-      print("\nSu reporte "+"¨"+nombre+".pdf"+"¨"+"  se ha creado correctamente")
+      print("\nSu reporte se ha creado correctamente")
       aux3= False
     elif a == "2":
+      print("\n¿Cual de las opciones desea editar?\n")
+      print("1) Nombre del documento: "+nombre+".pdf"+"\n")
+      print("2) Nombre del area: "+nombre_area+"\n")
+      print("3) Nombre del servicio: "+nombre_servicio+"\n")
+      print("4) Selección: "+seleccion_canales+""""\n
+                Porfavor seleccione uno de los canales:\n
+                1)oficinas     2)IVR \n
+                3)ATM           4)POS \n
+                5)Banca Por Internet \n
+                """)
+      print("5) Selección: "+seleccion_canales1+"""\n
+                Porfavor seleccione uno de los siguientes campos:\n
+                1)Incidente Tecnológico\n
+                2)Proveedor Externo \n
+                3)Mantenimiento \n
+            """)
+      print("6) Fecha de Inicio del Incidente : "+fecha_inicio+"\n")
+      print("7) Hora de Inico del Incidente: "+hora_inicio+"\n")
+      print("8) Fecha de Fin del Incidente: "+fecha_fin+"\n")
+      print("9) Hora de Fin del Incidente: "+hora_fin+"\n")
+      print("10) Descripcion: "+descripcion+descripcion1+descripcion2+"\n")
+      print("11) Motivo: "+motivo+motivo1+motivo2+"\n")
+      print("12)nombre del documento: "+servicios_afectados+"\n")
+      print("13)nombre del documento: "+correctivos+correctivos1+correctivos2+correctivos3+correctivos4+"\n")
       editar()
+      canvas.save()
+      print("\nSu reporte se ha creado correctamente")
       aux3 = False
+
     else: 
       print("\n Ingreso una opcion invalida! Porfavor Intente nuevamente")
       aux3== True
